@@ -1,0 +1,177 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="VSgaGklInORJmVaruMaW">
+    <mxGraphModel dx="1348" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-22" edge="1" parent="1" source="YT6B_m0c_KLa2o52pUo_-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fillColor=#f8cecc;strokeColor=#b85450;" target="YT6B_m0c_KLa2o52pUo_-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Service Central" vertex="1">
+          <mxGeometry height="250" width="269" x="279" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-7" edge="1" parent="YT6B_m0c_KLa2o52pUo_-1" source="YT6B_m0c_KLa2o52pUo_-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="YT6B_m0c_KLa2o52pUo_-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-8" edge="1" parent="YT6B_m0c_KLa2o52pUo_-1" source="YT6B_m0c_KLa2o52pUo_-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="YT6B_m0c_KLa2o52pUo_-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-9" edge="1" parent="YT6B_m0c_KLa2o52pUo_-1" source="YT6B_m0c_KLa2o52pUo_-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="YT6B_m0c_KLa2o52pUo_-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-10" connectable="0" parent="YT6B_m0c_KLa2o52pUo_-9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="découpage" vertex="1">
+          <mxGeometry relative="1" x="-0.9077" as="geometry">
+            <mxPoint x="-1" y="12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-2" parent="YT6B_m0c_KLa2o52pUo_-1" style="rounded=1;whiteSpace=wrap;html=1;" value="calcul lourd" vertex="1">
+          <mxGeometry height="30" width="80" x="95" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-39" edge="1" parent="YT6B_m0c_KLa2o52pUo_-1" source="YT6B_m0c_KLa2o52pUo_-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="YT6B_m0c_KLa2o52pUo_-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-4" parent="YT6B_m0c_KLa2o52pUo_-1" style="rounded=1;whiteSpace=wrap;html=1;" value="calcul léger&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="80" x="7" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-40" edge="1" parent="YT6B_m0c_KLa2o52pUo_-1" source="YT6B_m0c_KLa2o52pUo_-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="YT6B_m0c_KLa2o52pUo_-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-5" parent="YT6B_m0c_KLa2o52pUo_-1" style="rounded=1;whiteSpace=wrap;html=1;" value="calcul léger" vertex="1">
+          <mxGeometry height="30" width="80" x="94.5" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-41" edge="1" parent="YT6B_m0c_KLa2o52pUo_-1" source="YT6B_m0c_KLa2o52pUo_-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="YT6B_m0c_KLa2o52pUo_-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-6" parent="YT6B_m0c_KLa2o52pUo_-1" style="rounded=1;whiteSpace=wrap;html=1;" value="calcul léger" vertex="1">
+          <mxGeometry height="30" width="80" x="182" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-38" parent="YT6B_m0c_KLa2o52pUo_-1" style="rounded=1;whiteSpace=wrap;html=1;" value="calcul lourd" vertex="1">
+          <mxGeometry height="30" width="80" x="95" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-15" edge="1" parent="1" source="YT6B_m0c_KLa2o52pUo_-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="YT6B_m0c_KLa2o52pUo_-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-16" connectable="0" parent="YT6B_m0c_KLa2o52pUo_-15" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="connexion RMI" vertex="1">
+          <mxGeometry relative="1" y="-1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-18" connectable="0" parent="YT6B_m0c_KLa2o52pUo_-15" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="transmission du service de calcul" vertex="1">
+          <mxGeometry relative="1" x="-0.2121" y="2" as="geometry">
+            <mxPoint x="1" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-21" connectable="0" parent="YT6B_m0c_KLa2o52pUo_-15" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;+&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0909" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-51" edge="1" parent="1" source="YT6B_m0c_KLa2o52pUo_-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;fillColor=#d5e8d4;strokeColor=#82b366;" target="YT6B_m0c_KLa2o52pUo_-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="580" />
+              <mxPoint x="230" y="270" />
+              <mxPoint x="306" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-11" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Service de calcul" vertex="1">
+          <mxGeometry height="120" width="174" x="40" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-12" parent="YT6B_m0c_KLa2o52pUo_-11" style="rounded=1;whiteSpace=wrap;html=1;" value="effectue une fraction du calcul lourd" vertex="1">
+          <mxGeometry height="60" width="120" x="27" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-28" edge="1" parent="1" source="YT6B_m0c_KLa2o52pUo_-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414.5" y="430" as="sourcePoint" />
+            <mxPoint x="415" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-24" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Service de calcul" vertex="1">
+          <mxGeometry height="120" width="174" x="327" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-25" parent="YT6B_m0c_KLa2o52pUo_-24" style="rounded=1;whiteSpace=wrap;html=1;" value="effectue une fraction du calcul lourd" vertex="1">
+          <mxGeometry height="60" width="120" x="27" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-30" edge="1" parent="1" source="YT6B_m0c_KLa2o52pUo_-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" target="YT6B_m0c_KLa2o52pUo_-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-26" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Service de calcul" vertex="1">
+          <mxGeometry height="120" width="174" x="580" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-27" parent="YT6B_m0c_KLa2o52pUo_-26" style="rounded=1;whiteSpace=wrap;html=1;" value="effectue une fraction du calcul lourd" vertex="1">
+          <mxGeometry height="60" width="120" x="27" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-31" edge="1" parent="1" source="YT6B_m0c_KLa2o52pUo_-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fillColor=#f8cecc;strokeColor=#b85450;" target="YT6B_m0c_KLa2o52pUo_-26">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="225" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-34" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="connexion RMI" vertex="1">
+          <mxGeometry x="414" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-36" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;+&lt;/font&gt;" vertex="1">
+          <mxGeometry x="414" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-37" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="transmission du service de calcul" vertex="1">
+          <mxGeometry x="414" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-42" edge="1" parent="1" source="YT6B_m0c_KLa2o52pUo_-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" target="YT6B_m0c_KLa2o52pUo_-24">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="394" y="190" />
+              <mxPoint x="250" y="190" />
+              <mxPoint x="250" y="330" />
+              <mxPoint x="307" y="330" />
+              <mxPoint x="307" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-45" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="connexion RMI" vertex="1">
+          <mxGeometry x="710" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-46" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;+&lt;/font&gt;" vertex="1">
+          <mxGeometry x="710" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-47" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="transmission du service de calcul" vertex="1">
+          <mxGeometry x="710" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-49" edge="1" parent="1" source="YT6B_m0c_KLa2o52pUo_-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.9;entryY=1.067;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#d5e8d4;strokeColor=#82b366;" target="YT6B_m0c_KLa2o52pUo_-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-50" edge="1" parent="1" source="YT6B_m0c_KLa2o52pUo_-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.906;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#d5e8d4;strokeColor=#82b366;" target="YT6B_m0c_KLa2o52pUo_-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="521" y="580" />
+              <mxPoint x="521" y="260" />
+              <mxPoint x="446" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-53" parent="1" style="shape=note;size=20;whiteSpace=wrap;html=1;" value="&lt;div&gt;transmission de la fraction&amp;nbsp;&lt;/div&gt;&lt;div&gt;du calcul lourd&lt;/div&gt;&lt;div&gt;(calcul léger)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="120" x="40" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-52" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="80" y="720" as="sourcePoint" />
+            <mxPoint x="120" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-54" parent="1" style="shape=note;size=20;whiteSpace=wrap;html=1;" value="&lt;div&gt;transmission de la réponse du calcul léger&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="120" x="40" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-55" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fillColor=#d5e8d4;strokeColor=#82b366;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="80" y="860" as="sourcePoint" />
+            <mxPoint x="120" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YT6B_m0c_KLa2o52pUo_-56" parent="1" style="shape=note;size=20;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;1. le calcul est divisé en plusieurs sous-calcul.&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;2. les Services de calcul RMI se connectent à l&#39;annuaire mis en place par le service central&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;3. les service de calcul sournissent leur service rmi au serveur central sur le modèle d&#39;une architecture en étoile&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;4. les fractions de calcul sont envoyées depuis différent threads du service centrale vers les service de calcul&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;5. les services de calcul revoie la réponse de leur fraction de calcul au service central&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;6. le service central reconstruit le résultat final&amp;nbsp;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="270" width="386" x="254" y="700" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
