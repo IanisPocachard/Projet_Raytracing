@@ -30,6 +30,9 @@ Accélérer le raytracing en divisant l’image en blocs calculés par plusieurs
    - récupération des imagettes
 
 ## Commandes d’exécution
+    - Compiler le projet :
+        - Se mettre à la racine du projet
+        - Exécuter la commande : `javac *.java calcul/*.java client/*.java raytracer/*.java serveur_central/*.java`
 
 ## Schémas
    - architecture globale
