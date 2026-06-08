@@ -1,0 +1,13 @@
+Client:
+- récupère le service central en passant par l'annuaire
+- découpe l'image, pour chaque morceau d'image demande un nœud au service central, crée un thread pour utiliser ce nœud pour calculer le bout d'image
+- je demande un nœud au service central
+- on fait bosser le nœud de calcul pour qu'il me calcule l'image
+
+Service Central:
+- a une liste de nœuds de calcul
+- donne au client un nœud disponible
+
+
+nœud de calcul:
+- calcul l'image
