@@ -7,7 +7,7 @@ public class TacheCalcul implements Serializable {
   private Scene scene;
   private int x, y, hauteur, largeur;
   
-  public TacheCalcul (Scene scene, int x, int y, int hauteur, int largeur) {
+  public TacheCalcul (Scene scene, int x, int y, int largeur, int hauteur) {
     this.scene = scene;
     this.x = x;
     this.y = y;
