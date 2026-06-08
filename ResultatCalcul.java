@@ -4,7 +4,7 @@ public class ResultatCalcul implements Serializable {
   private Image image;
   private int x, y;
   
-  public TacheCalcul (Image image, int x, int y) {
+  public ResultatCalcul(Image image, int x, int y) {
     this.image = image;
     this.x = x;
     this.y = y;
