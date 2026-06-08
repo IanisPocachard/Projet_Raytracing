@@ -66,8 +66,6 @@ public class LancerRaytracerDecoupe {
 
                 System.out.println(" -> Calcul du bloc [" + i + "][" + j + "] à (" + x0 + "," + y0 + ") taille " + l + "x" + h);
                 
-                
-                
                 // Calcul de la sous-image
                 Image imagePartielle = scene.compute(x0, y0, l, h);
                 
