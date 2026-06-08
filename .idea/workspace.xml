@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1005b7a9-fa82-4960-b97c-00fbce13d2cf" name="Changes" comment="" />
+    <list default="true" id="1005b7a9-fa82-4960-b97c-00fbce13d2cf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/raytracer/LancerRaytracerDecoupe.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +74,7 @@
       <workItem from="1780575854368" duration="2249000" />
       <workItem from="1780645783783" duration="23000" />
       <workItem from="1780907993428" duration="43000" />
+      <workItem from="1780908408449" duration="46000" />
     </task>
     <servers />
   </component>
