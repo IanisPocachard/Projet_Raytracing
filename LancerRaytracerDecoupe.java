@@ -16,6 +16,9 @@ public class LancerRaytracerDecoupe {
 
         // largeur et hauteur par défaut de l'image à reconstruire
         int largeur = 512, hauteur = 512;
+
+        // Nombre de découpages
+        int n = 2;
         
         if(args.length > 0){
             fichier_description = args[0];
@@ -23,6 +26,8 @@ public class LancerRaytracerDecoupe {
                 largeur = Integer.parseInt(args[1]);
                 if(args.length > 2)
                     hauteur = Integer.parseInt(args[2]);
+                    if(args.length > 3)
+                        n = Integer.parseInt(args[3]);
             }
         }else{
             System.out.println(aide);
@@ -40,25 +45,34 @@ public class LancerRaytracerDecoupe {
         // - l et h : hauteur et largeur de l'image calculée
         // Ici on calcule toute l'image (0,0) -> (largeur, hauteur)
         
-        int demiLargeur = largeur / 2;
-        int demiHauteur = hauteur / 2;
+        int largeurBloc = largeur / n;
+        int hauteurBloc = hauteur / n;
 
         System.out.println("Début du rendu par sous-images...");
         Instant debut = Instant.now();
 
-        // 1. Calcul et affichage du coin Haut-Gauche
-        // Origine : (0, 0), Taille : demiLargeur x demiHauteur
-        System.out.println(" -> Calcul du coin Haut-Gauche");
-        Image imageHautGauche = scene.compute(0, 0, demiLargeur, demiHauteur);
-        disp.setImage(imageHautGauche, 0, 0);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                
+                // Coordonnées du coin en haut à gauche du bloc courant
+                int x0 = i * largeurBloc;
+                int y0 = j * hauteurBloc;
+                
+                // Calcul de la taille du bloc. 
+                // Si c'est le dernier bloc (i ou j == n - 1), on prend tout le reste 
+                // pour éviter les pixels vides à cause des divisions entières.
+                int l = (i == n - 1) ? (largeur - x0) : largeurBloc;
+                int h = (j == n - 1) ? (hauteur - y0) : hauteurBloc;
 
-        // 2. Calcul et affichage du coin Bas-Droit
-        // Origine : (demiLargeur, demiHauteur), Taille : largeur restante x hauteur restante
-        System.out.println(" -> Calcul du coin Bas-Droit");
-        int resteLargeur = largeur - demiLargeur;
-        int resteHauteur = hauteur - demiHauteur;
-        Image imageBasDroit = scene.compute(demiLargeur, demiHauteur, resteLargeur, resteHauteur);
-        disp.setImage(imageBasDroit, demiLargeur, demiHauteur);
+                System.out.println(" -> Calcul du bloc [" + i + "][" + j + "] à (" + x0 + "," + y0 + ") taille " + l + "x" + h);
+                
+                // Calcul de la sous-image
+                Image imagePartielle = scene.compute(x0, y0, l, h);
+                
+                // Affichage direct du bloc sur la fenêtre
+                disp.setImage(imagePartielle, x0, y0);
+            }
+        }
 
         Instant fin = Instant.now();
         long duree = Duration.between(debut, fin).toMillis();
