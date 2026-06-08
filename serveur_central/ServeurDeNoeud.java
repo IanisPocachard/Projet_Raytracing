@@ -7,6 +7,8 @@ import java.util.List;
 
 import java.lang.Thread;
 
+import calcul.InterfaceNoeudDeCalcul;
+
 class ServeurDeNoeud implements InterfaceServeurDeNoeud {
     private List<InterfaceNoeudDeCalcul> noeuds;
     private int index;

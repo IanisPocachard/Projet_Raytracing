@@ -1,11 +1,17 @@
 package client;
 
+import java.rmi.registry.Registry;
+import java.rmi.registry.LocateRegistry;
+
 import java.time.Instant;
 import java.time.Duration;
 
 import raytracer.Disp;
 import raytracer.Scene;
 import raytracer.Image;
+
+import serveur_central.InterfaceServeurDeNoeud;
+import calcul.InterfaceNoeudDeCalcul;
 
 public class LancerRaytracerDecoupe {
 
@@ -53,27 +59,50 @@ public class LancerRaytracerDecoupe {
         System.out.println("Début du rendu par sous-images...");
         Instant debut = Instant.now();
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                
-                // Coordonnées du coin en haut à gauche du bloc courant
-                int x0 = i * largeurBloc;
-                int y0 = j * hauteurBloc;
-                
-                // Calcul de la taille du bloc. 
-                // Si c'est le dernier bloc (i ou j == n - 1), on prend tout le reste 
-                // pour éviter les pixels vides à cause des divisions entières.
-                int l = (i == n - 1) ? (largeur - x0) : largeurBloc;
-                int h = (j == n - 1) ? (hauteur - y0) : hauteurBloc;
+        try {
+            Registry registre = LocateRegistry.getRegistry("localhost", 1099);
 
-                System.out.println(" -> Calcul du bloc [" + i + "][" + j + "] à (" + x0 + "," + y0 + ") taille " + l + "x" + h);
-                
-                // Calcul de la sous-image
-                Image imagePartielle = scene.compute(x0, y0, l, h);
-                
-                // Affichage direct du bloc sur la fenêtre
-                disp.setImage(imagePartielle, x0, y0);
+            InterfaceServeurDeNoeud serveur = (InterfaceServeurDeNoeud) registre.lookup("ServiceCentral");
+
+            EnvoyerCalcul[] threads = new EnvoyerCalcul[n * n];
+            int numeroBloc = 0;
+
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+
+                    int x0 = i * largeurBloc;
+                    int y0 = j * hauteurBloc;
+
+                    int l = (i == n - 1) ? (largeur - x0) : largeurBloc;
+                    int h = (j == n - 1) ? (hauteur - y0) : hauteurBloc;
+
+                    InterfaceNoeudDeCalcul noeud =
+                        serveur.distribuerNoeudDisponible();
+
+                    if (noeud == null) {
+                        System.out.println("Aucun noeud disponible.");
+                        return;
+                    }
+
+                    System.out.println(" -> Envoi du bloc à un noeud : "
+                            + x0 + "," + y0
+                            + " taille " + l + "x" + h);
+
+                    threads[numeroBloc] =
+                        new EnvoyerCalcul(x0, y0, l, h, scene, disp, noeud);
+
+                    threads[numeroBloc].start();
+                    numeroBloc++;
+                }
             }
+
+            for (EnvoyerCalcul thread : threads) {
+                thread.join();
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         Instant fin = Instant.now();

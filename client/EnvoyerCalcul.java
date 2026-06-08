@@ -17,7 +17,11 @@ class EnvoyerCalcul extends Thread {
     }
 
     public void run() {
-        this.disp.setImage(this.noeud.calculer(this.calcul), this.calcul.getX(), this.calcul.getY());
+        try {
+            this.disp.setImage(this.noeud.calculer(this.calcul), this.calcul.getX(), this.calcul.getY());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
