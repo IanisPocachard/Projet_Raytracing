@@ -19,14 +19,17 @@ class ServeurDeNoeud implements InterfaceServeurDeNoeud {
     }
 
     public void supprimerNoeudDeCalcul(InterfaceNoeudDeCalcul n) throws RemoteException {
-        this.noeuds.remove(c);
+        this.noeuds.remove(n);
     }
 
-    public InterfaceNoeudDeCalcul distribuerNoeudDisponible() {
+    public InterfaceNoeudDeCalcul distribuerNoeudDisponible() throws RemoteException {
       if (this.noeuds.size() == 0) return null; 
       this.index++;
       if (this.index>=this.noeuds.size()) this.index = 0;
-      return this.noeuds.get(this.index));
+      
+      System.out.println("Distribution du noeud index : " + this.index);
+
+      return this.noeuds.get(this.index);
     }
 
 }

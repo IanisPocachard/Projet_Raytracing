@@ -1,3 +1,4 @@
+package noeudcalcul;
 import java.rmi.RemoteException;
 
 interface InterfaceNoeudDeCalcul extends Remote {

@@ -1,6 +1,8 @@
-public class NoeudDeCalcul implements InterfaceNoeudDeCalcul {    
+package noeudcalcul;
+
+public class NoeudDeCalcul implements InterfaceNoeudDeCalcul {
     public Image calculer(TacheCalcul calcul) throws RemoteException {
         Scene scene = calcul.getScene();
-        return scene.compute(calcul.getX(), calcul.getY(), calcul.getLargeur(), calcul.getLongueur());
+        return scene.compute(calcul.getX(), calcul.getY(), calcul.getLargeur(), calcul.getHauteur());
     }
 }

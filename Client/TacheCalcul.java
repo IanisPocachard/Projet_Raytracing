@@ -2,13 +2,13 @@ import java.io.Serializable;
 
 public class TacheCalcul implements Serializable {
   private Scene scene;
-  private int x, y, longueur, largeur;
+  private int x, y, hauteur, largeur;
   
-  public TacheCalcul (Scene scene, int x, int y, int longueur, int largeur) {
+  public TacheCalcul (Scene scene, int x, int y, int hauteur, int largeur) {
     this.scene = scene;
     this.x = x;
     this.y = y;
-    this.longueur = longueur;
+    this.hauteur = hauteur;
     this.largeur = largeur;
   }
   
@@ -24,8 +24,8 @@ public class TacheCalcul implements Serializable {
     return this.y;
   }
   
-  public int getLongueur() {
-    return this.longueur;
+  public int getHauteur() {
+    return this.hauteur;
   }
   
   public int getLargeur() {
