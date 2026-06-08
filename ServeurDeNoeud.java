@@ -6,26 +6,12 @@ import java.util.List;
 import java.lang.Thread;
 
 class ServeurDeNoeud implements InterfaceServeurDeNoeud {
-    private List<InterfaceNoeudDeCalcul> noeuds; 
-    
-    private class EnvoieCalcul extends Thread {
-      
-      private InterfaceNoeudDeCalcul noeud
-      private InterfaceCalcul calcul
-      
-      public EnvoieCalcul(InterfaceNoeudDeCalcul n, InterfaceCalcul c) {
-        this.noeud = n;
-        this.calcul = c;
-      }
-      
-      public void run() {
-        //appel de la méthode de calcul du noeud
-      }
-      
-    }
+    private List<InterfaceNoeudDeCalcul> noeuds;
+    private int index;
 
     public ServeurDeNoeud() {
         this.noeuds = new ArrayList<>();
+        this.index = -1;
     }
 
     public void enregistrerNoeudDeCalcul(InterfaceNoeudDeCalcul n) throws RemoteException{
@@ -36,9 +22,11 @@ class ServeurDeNoeud implements InterfaceServeurDeNoeud {
         this.noeuds.remove(c);
     }
 
-    public void distribuerCalcul(InterfaceCalcul d) {
-      //choisir un noeud disponible
-      //envoyer dans un autre thread le calcul au noeud
+    public InterfaceNoeudDeCalcul distribuerNoeudDisponible() {
+      if (this.noeuds.size() == 0) return null; 
+      this.index++;
+      if (this.index>=this.noeuds.size()) this.index = 0;
+      return this.noeuds.get(this.index));
     }
 
 }
