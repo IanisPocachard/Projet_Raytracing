@@ -1,0 +1,48 @@
+@startuml
+
+class Noeud {
+    + main()
+}
+
+interface ServiceNoeuds extends Remote {
+    + {abstract}ArrayList<Noeud> getNoeuds()
+    + {abstract}void enregistrerNoeud()
+}
+
+class Noeuds implements ServiceNoeuds {
+    - ArrayList<Noeud> noeuds
+    + ArrayList<Noeud> getNoeuds()
+    + void enregistrerNoeud()
+}
+
+class LancerServiceNoeuds {
+    + main()
+}
+
+interface ServiceCalcul extends Remote {
+    + {abstract}ResultatCalcul calculer(TacheCalcul tache)
+}
+
+class Calculateur implements ServiceCalcul {
+    + ResultatCalcul calculer(TacheCalcul tache)
+}
+
+class TacheCalcul implements Serializable {
+    - Scene scene
+    - int x
+    - int y
+    - int longueur
+    - int largeur
+}
+
+class ResultatCalcul implements Serializable {
+    - Image image
+    - int x
+    - int y
+}
+
+class LancerRaytracer {
+    + main()
+}
+
+@enduml
