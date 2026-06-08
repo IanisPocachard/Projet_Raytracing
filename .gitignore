@@ -1,4 +1,6 @@
 *.zip
-*.class
+# *.class
+raytracer/*.class
+/*.class
 Projet_Raytracing_calcul_parallele.pdf
 
