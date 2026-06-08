@@ -1,6 +1,10 @@
+package client;
+
+import raytracer.*;
+
 class EnvoyerCalcul extends Thread {
   private TacheCalcul calcul;
-  private Disp disp
+  private Disp disp;
   private InterfaceNoeudDeCalcul noeud;
   
   public EnvoyerCalcul (int x0, int y0, int l, int h, Scene s, Disp d, InterfaceNoeudDeCalcul n) {
@@ -9,7 +13,7 @@ class EnvoyerCalcul extends Thread {
     this.noeud = n;
   }
   
-  public run () {
+  public void run() {
     this.disp.setImage(this.noeud.calculer(this.calcul), this.calcul.getX(), this.calcul.getY());
   }
 

@@ -1,8 +1,12 @@
+package calcul;
+
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.RemoteException;
 import java.rmi.NotBoundException;
 import java.rmi.registry.Registry;
+
+import serveur_central.InterfaceServeurDeNoeud;
 
 public class LancerNoeudDeCalcul {
     public static void main(String[] args) throws RemoteException, NotBoundException {

@@ -1,3 +1,6 @@
+package client;
+import raytracer.Scene;
+
 import java.io.Serializable;
 
 public class TacheCalcul implements Serializable {

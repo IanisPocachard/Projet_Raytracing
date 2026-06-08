@@ -1,3 +1,5 @@
+package serveur_central;
+
 import java.rmi.RemoteException;
 import java.rmi.Remote;
 import java.util.ArrayList;
