@@ -3,6 +3,10 @@ package client;
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
 
+import java.rmi.RemoteException;
+import java.rmi.NotBoundException;
+import java.rmi.ConnectException;
+
 import java.time.Instant;
 import java.time.Duration;
 
@@ -15,7 +19,7 @@ import calcul.InterfaceNoeudDeCalcul;
 
 public class LancerRaytracerDecoupe {
 
-    public static String aide = "Raytracer : synthèse d'image par lancé de rayons (https://en.wikipedia.org/wiki/Ray_tracing_(graphics))\n\nUsage : java LancerRaytracer [fichier-scène] [largeur] [hauteur]\n\tfichier-scène : la description de la scène (par défaut simple.txt)\n\tlargeur : largeur de l'image calculée (par défaut 512)\n\thauteur : hauteur de l'image calculée (par défaut 512)\n";
+    public static String aide = "Raytracer : synthèse d'image par lancé de rayons (https://en.wikipedia.org/wiki/Ray_tracing_(graphics))\n\nUsage : java LancerRaytracer [fichier-scène] [largeur] [hauteur] [nombre découpages]\n\tfichier-scène : la description de la scène (par défaut simple.txt)\n\tlargeur : largeur de l'image calculée (par défaut 512)\n\thauteur : hauteur de l'image calculée (par défaut 512)\n";
      
     public static void main(String args[]){
 
@@ -76,8 +80,7 @@ public class LancerRaytracerDecoupe {
                     int l = (i == n - 1) ? (largeur - x0) : largeurBloc;
                     int h = (j == n - 1) ? (hauteur - y0) : hauteurBloc;
 
-                    InterfaceNoeudDeCalcul noeud =
-                        serveur.distribuerNoeudDisponible();
+                    InterfaceNoeudDeCalcul noeud = serveur.distribuerNoeudDisponible();
 
                     if (noeud == null) {
                         System.out.println("Aucun noeud disponible.");
@@ -88,8 +91,7 @@ public class LancerRaytracerDecoupe {
                             + x0 + "," + y0
                             + " taille " + l + "x" + h);
 
-                    threads[numeroBloc] =
-                        new EnvoyerCalcul(x0, y0, l, h, scene, disp, noeud);
+                    threads[numeroBloc] = new EnvoyerCalcul(x0, y0, l, h, scene, disp, noeud, serveur);
 
                     threads[numeroBloc].start();
                     numeroBloc++;
@@ -99,8 +101,13 @@ public class LancerRaytracerDecoupe {
             for (EnvoyerCalcul thread : threads) {
                 thread.join();
             }
-
-
+            
+        } catch (ConnectException e) {
+            System.out.println("Erreur de connexion : " + e.getMessage());
+        } catch (NotBoundException e) {
+            System.out.println("Erreur : Le service n'est pas enregistré dans le registre : " + e.getMessage());
+        } catch (RemoteException e) {
+            System.out.println("Erreur : Connexion RMI impossible : " + e.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
         }
