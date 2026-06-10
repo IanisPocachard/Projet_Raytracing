@@ -13,6 +13,30 @@ https://github.com/IanisPocachard/Projet_Raytracing/
 ## Objectif du projet
 Accélérer le raytracing en divisant l’image en blocs calculés par plusieurs noeuds.
 
+## Principe de parallélisation des données
+
+Le calcul parallèle utilisé ici est une parallélisation des données. On applique le même traitement, `scene.compute(...)`, à plusieurs zones différentes de l'image.
+
+Principe général :
+
+```text
+Image complète
+      |
+      v
+Découpage en blocs
+      |
+      v
+Envoi des blocs aux noeuds de calcul
+      |
+      v
+Calcul des imagettes en parallèle
+      |
+      v
+Affichage de l'image finale
+```
+
+Cette solution permet d'utiliser plusieurs machines pour un même rendu.
+
 
 ## Architecture
 
@@ -83,6 +107,78 @@ Cette interface décrit ce qu'un nœud de calcul sait faire : recevoir une tâch
 Dans les deux cas, `Remote` sert à indiquer qu'une interface est une interface distante RMI. Cela veut dire que les méthodes de cette interface peuvent être appelées depuis une autre JVM donc potentiellement sur une autre machine.
 
 
+## Processus fixes et processus mobiles
+
+Les processus fixes sont :
+
+- le registre RMI, qui écoute sur un port connu, généralement `1099` ;
+- le serveur central, enregistré sous le nom `ServiceCentral`.
+
+Les processus mobiles sont :
+
+- les noeuds de calcul, qui peuvent être lancés ou arrêtés ;
+- les clients, qui lancent un rendu lorsqu'ils en ont besoin.
+
+Les noeuds de calcul ne sont pas connus directement par le client. Ils s'enregistrent auprès du serveur central, puis le client récupère leurs références grâce au serveur central.
+
+
+## Types de données échangées
+
+| Échange | Type | Rôle |
+|---|---|---|
+| Noeud -> serveur central | `InterfaceNoeudDeCalcul` | référence distante du noeud |
+| Client -> serveur central | appel `distribuerNoeudDisponible()`, renvoie un objet de type InterfaceNoeudDeCalcul | demande d'un noeud|
+| Serveur central -> client | `InterfaceNoeudDeCalcul` | référence du noeud à utiliser |
+| Client -> noeud | `TacheCalcul` | bloc de l'image à calculer |
+| Noeud -> client | `Image` | imagette calculée |
+
+
+## Threads et calcul parallèle
+
+Pour que les calculs se fassent réellement en parallèle, il faut lancer plusieurs appels RMI en même temps. Un appel RMI est bloquant : si le client appelle directement `noeud.calculer(...)`, il attend la fin du calcul avant de passer au bloc suivant.
+
+Pour éviter cela, le client crée un thread par bloc :
+
+```java
+threads[numeroBloc] = new EnvoyerCalcul(x0, y0, l, h, scene, disp, noeud, serveur);
+threads[numeroBloc].start();
+```
+
+La classe `EnvoyerCalcul` représente donc un thread pour le calcul d'un bloc. Elle contient la tâche à calculer, le noeud distant à appeler et l'affichage dans lequel placer l'image partielle.
+
+Dans sa méthode `run()`, elle appelle :
+
+```java
+this.noeud.calculer(this.calcul)
+```
+
+Le noeud calcule alors l'imagette, puis le client l'affiche au directement au bon endroit avec `disp.setImage(...)`.
+
+
+## Gestion des noeuds disponibles
+
+Le serveur central possède une liste de noeuds de calcul. Lorsqu'un noeud démarre, il s'enregistre auprès du serveur central.
+
+La méthode `distribuerNoeudDisponible()` distribue les noeuds avec un index circulaire :
+
+```java
+this.index++;
+if (this.index >= this.noeuds.size()) this.index = 0;
+return this.noeuds.get(this.index);
+```
+
+Dans notre projet, un noeud est considéré comme disponible s'il est présent dans cette liste. Le but est que le serveur central donne une référence de noeud, et si ce noeud ne répond plus, le client peut demander sa suppression dans la liste du serveur central.
+
+La classe `EnvoyerCalcul` gère partiellement ce cas :
+
+```java
+catch (ConnectException e) {
+    this.serveur.supprimerNoeudDeCalcul(noeud);
+    this.noeud = this.serveur.distribuerNoeudDisponible();
+}
+```
+
+Cela permet de retirer un noeud qui n'est plus disponible. Une amélioration possible serait de relancer automatiquement la tâche échouée sur le nouveau noeud récupéré.
 
 
 
@@ -123,7 +219,7 @@ Explication du fonctionnement plus finement :
 5. Chaque nœud exporte son objet.
 6. Chaque nœud récupère `ServiceCentral` dans l'annuaire.
 7. Chaque nœud envoie sa référence distante au serveur central.
-8. Le client récupère le service central une référence distante du `ServeurDeNoeud`.
+8. Le client récupère le service central une référence distante vers le `ServeurDeNoeud`.
 9. Le client découpe l'image en n * n blocs.
 10. Pour chaque bloc, le client demande un nœud au serveur central.
 11. Le client crée un thread `EnvoyerCalcul`.
@@ -134,9 +230,9 @@ Explication du fonctionnement plus finement :
 16. Enfin, le client attend tous les threads qu'il a lancé avec `join()`.
 
 
-### courbes comparatives de la vitesse de chargement de l'image avec et sans répartition
+### Courbes comparatives de la vitesse de chargement de l'image avec et sans répartition
 ![schemas de l'application](Doc/Courbes.png)
-la répartition permet d'accélérer le rendu de l'image
+Les courbes montrent que la répartition permet d'accélérer le rendu.
 
 ## Animation
 [![video de démo](Doc/Miniature.png)](https://raw.githubusercontent.com/IanisPocachard/Projet_Raytracing/refs/heads/main/video.webm)
