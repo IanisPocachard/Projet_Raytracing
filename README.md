@@ -1,5 +1,8 @@
 # Projet Raytracing
 
+## Lien du repo git :
+https://github.com/IanisPocachard/Projet_Raytracing/
+
 ## Membres du groupe :
 - Ambroise Gilbert
 - Ianis Pocachard
@@ -31,6 +34,58 @@ Le projet est organisé autour de plusieurs modules :
 - lancement des threads 
 - récupération des imagettes
 
+## Interfaces du projet
+
+### Interface du serveur central
+
+```java
+package serveur_central;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import calcul.InterfaceNoeudDeCalcul;
+
+public interface InterfaceServeurDeNoeud extends Remote {
+    public void enregistrerNoeudDeCalcul(InterfaceNoeudDeCalcul n)
+        throws RemoteException;
+
+    public void supprimerNoeudDeCalcul(InterfaceNoeudDeCalcul n)
+        throws RemoteException;
+
+    public InterfaceNoeudDeCalcul distribuerNoeudDisponible()
+        throws RemoteException;
+}
+```
+
+Cette interface décrit le service central. Elle permet :
+
+- à un nœud de calcul de s'enregistrer ;
+- au client de demander un nœud ;
+- au client de demander la suppression d'un nœud qui ne répond plus.
+
+### Interface d'un nœud de calcul
+
+```java
+package calcul;
+
+import client.TacheCalcul;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import raytracer.Image;
+
+public interface InterfaceNoeudDeCalcul extends Remote {
+    public Image calculer(TacheCalcul calcul) throws RemoteException;
+}
+```
+
+Cette interface décrit ce qu'un nœud de calcul sait faire : recevoir une tâche de calcul et retourner une image partielle.
+
+Dans les deux cas, `Remote` sert à indiquer qu'une interface est une interface distante RMI. Cela veut dire que les méthodes de cette interface peuvent être appelées depuis une autre JVM donc potentiellement sur une autre machine.
+
+
+
+
+
 ## Commandes d’exécution
  
 Compiler le projet :
@@ -58,6 +113,25 @@ Service Central:
 
 nœud de calcul:
    - calcule l'image
+
+
+Explication du fonctionnement plus finement :
+1. L'annuaire RMI démarre.
+2. Le serveur central crée un objet `ServeurDeNoeud`.
+3. Le serveur central exporte cet objet et l'enregistre sous le nom `ServiceCentral`.
+4. Chaque nœud crée un objet `NoeudDeCalcul`.
+5. Chaque nœud exporte son objet.
+6. Chaque nœud récupère `ServiceCentral` dans l'annuaire.
+7. Chaque nœud envoie sa référence distante au serveur central.
+8. Le client récupère le service central une référence distante du `ServeurDeNoeud`.
+9. Le client découpe l'image en n * n blocs.
+10. Pour chaque bloc, le client demande un nœud au serveur central.
+11. Le client crée un thread `EnvoyerCalcul`.
+12. Chaque thread appelle `noeud.calculer(tache)`.
+13. Le nœud calcule son imagette avec `scene.compute(...)`.
+14. Le nœud renvoie une `Image`.
+15. Le client affiche cette image partielle au bon endroit.
+16. Enfin, le client attend tous les threads qu'il a lancé avec `join()`.
 
 
 ### courbes comparatives de la vitesse de chargement de l'image avec et sans répartition
