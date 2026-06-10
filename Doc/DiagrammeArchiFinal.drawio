@@ -1,0 +1,89 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="Y7PHjUd1h4pLS2Hsml74">
+    <mxGraphModel dx="1290" dy="755" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-17" edge="1" parent="1" source="zuwxcO-FfMJ0io_Iu2Xz-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="zuwxcO-FfMJ0io_Iu2Xz-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="610" y="670" />
+              <mxPoint x="400" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-7" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="330" y="220" as="sourcePoint" />
+            <mxPoint x="330" y="447" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-8" connectable="0" parent="zuwxcO-FfMJ0io_Iu2Xz-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;div&gt;1. récupère le service&amp;nbsp;&lt;/div&gt;&lt;div&gt;&quot;serveur de noeud&quot;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.2897" y="-3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-10" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="220" as="sourcePoint" />
+            <mxPoint x="460" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-13" connectable="0" parent="zuwxcO-FfMJ0io_Iu2Xz-10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="3.&amp;nbsp; demande un noeud&amp;nbsp;&lt;div&gt;de calcul disponible&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.184" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-18" edge="1" parent="1" source="zuwxcO-FfMJ0io_Iu2Xz-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="zuwxcO-FfMJ0io_Iu2Xz-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="670" y="120" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-19" connectable="0" parent="zuwxcO-FfMJ0io_Iu2Xz-18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;div&gt;4. envoie la fraction d&#39;image depuis un&amp;nbsp;&lt;/div&gt;&lt;div&gt;nouveau thread vers le noeud de calcul&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.2294" as="geometry">
+            <mxPoint y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Client" vertex="1">
+          <mxGeometry height="170" width="240" x="280" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-12" parent="zuwxcO-FfMJ0io_Iu2Xz-1" style="rounded=1;whiteSpace=wrap;html=1;" value="2. découpe l&#39;image en fraction d&#39;image" vertex="1">
+          <mxGeometry height="40" width="220" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-21" parent="zuwxcO-FfMJ0io_Iu2Xz-1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div&gt;6. affiche le résultat du noeud de&amp;nbsp;&lt;/div&gt;&lt;div&gt;calcul à l&#39;emplacement de&amp;nbsp;&lt;/div&gt;&lt;div&gt;la fraction d&#39;image&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="220" x="10" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-4" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Serveur De Noeud" vertex="1">
+          <mxGeometry height="100" width="240" x="280" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-22" parent="zuwxcO-FfMJ0io_Iu2Xz-4" style="rounded=1;whiteSpace=wrap;html=1;" value="liste des noeuds de calculs" vertex="1">
+          <mxGeometry height="30" width="200" x="20" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-14" edge="1" parent="1" source="zuwxcO-FfMJ0io_Iu2Xz-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="zuwxcO-FfMJ0io_Iu2Xz-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="670" />
+              <mxPoint x="400" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-16" connectable="0" parent="zuwxcO-FfMJ0io_Iu2Xz-14" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;div&gt;récupère le service &quot;serveur de noeud&quot;&lt;/div&gt;&lt;div&gt;via l&#39;annuaire&amp;nbsp;et appelle une méthodes&amp;nbsp;&lt;/div&gt;&lt;div&gt;pour enregistrer un service noeud de calcul&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.6222" as="geometry">
+            <mxPoint x="181" y="-56" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-5" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Noeud de calcul" vertex="1">
+          <mxGeometry height="140" width="240" x="100" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-6" parent="1" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" value="Noeud de calcul" vertex="1">
+          <mxGeometry height="140" width="240" x="490" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="zuwxcO-FfMJ0io_Iu2Xz-20" parent="zuwxcO-FfMJ0io_Iu2Xz-6" style="rounded=1;whiteSpace=wrap;html=1;" value="5. calcul la fraction d&#39;image&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="200" x="20" y="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
